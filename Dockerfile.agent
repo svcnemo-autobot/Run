@@ -1,0 +1,6 @@
+FROM ghcr.io/astral-sh/uv:python3.11-bookworm
+WORKDIR /opt/nemo-run
+COPY . .
+RUN uv sync --locked --extra skypilot --group lint
+ENV PATH="/opt/nemo-run/.venv/bin:${PATH}"
+CMD ["sleep", "infinity"]
